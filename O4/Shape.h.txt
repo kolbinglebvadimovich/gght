@@ -1,0 +1,39 @@
+#ifndef SHAPE_H
+#define SHAPE_H
+
+#include <string>
+
+class Shape 
+{
+public:
+    virtual std::string getName() const = 0;
+    virtual ~Shape() {}
+};
+
+class Triangle : public Shape 
+{
+public:
+    Triangle(double a, double b, double c);
+    std::string getName() const override;
+private:
+    double sides[3];
+};
+
+class Quadrilateral : public Shape 
+{
+public:
+    Quadrilateral(double a, double b, double c, double d);
+    std::string getName() const override;
+private:
+    double sides[4];
+};
+
+#ifdef SHAPE_EXPORTS
+#define SHAPE_API __declspec(dllexport)
+#else
+#define SHAPE_API __declspec(dllimport)
+#endif
+
+SHAPE_API Shape* createShape(const std::string& name);
+SHAPE_API void deleteShape(Shape* shape);
+#endif

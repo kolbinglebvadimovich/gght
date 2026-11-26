@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include "Shape.h"
+
+int main() 
+{
+    std::string name;
+    std::cout << "Введите тип фигуры (Треугольник/Четырёхугольник): " << std::endl;
+    std::cin >> name;
+
+    Shape* shape = createShape(name);
+    if (shape != nullptr) 
+        {
+        std::cout << "\n" << shape->getName() << ":\n" << std::endl;
+        std::cout << "Стороны: " << std::endl;
+        for (double side : shape->sides) 
+    {
+            std::cout << side << " ";
+        }
+        std::cout << "\nУглы: " << std::endl;
+        deleteShape(shape);
+    }
+
+    return 0;
+}
