@@ -1,0 +1,31 @@
+#ifndef SHAPES_H
+#define SHAPES_H
+
+#include <string>
+
+class Shape 
+{
+public:
+    virtual std::string getName() const = 0;
+    virtual ~Shape() = default;
+};
+
+class Triangle : public Shape 
+{
+public:
+    Triangle(double a, double b, double c);
+    std::string getName() const override;
+private:
+    double sides[3];
+};
+
+class Quadrilateral : public Shape 
+{
+public:
+    Quadrilateral(double a, double b, double c, double d);
+    std::string getName() const override;
+private:
+    double sides[4];
+};
+
+#endif

@@ -1,0 +1,16 @@
+#include "shapes.h"
+#include <iostream>
+
+Triangle::Triangle(double a, double b, double c) : sides{a, b, c} 
+
+std::string Triangle::getName() const 
+{
+    return "Треугольник";
+}
+
+Quadrilateral::Quadrilateral(double a, double b, double c, double d) : sides{a, b, c, d} 
+   
+std::string Quadrilateral::getName() const 
+{
+    return "Четырёхугольник";
+}

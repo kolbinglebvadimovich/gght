@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include "shapes.h"
+
+int main() 
+{
+    std::string name;
+    std::cout << "Введите тип фигуры (Треугольник/Четырёхугольник): " << std::endl;
+    std::cin >> name;
+
+    if (name == "Треугольник") 
+    {
+        double a, b, c;
+        std::cout << "Стороны: " << std::endl;
+        std::cin >> a >> b >> c;
+        Triangle triangle(a, b, c);
+        std::cout << "\n" << triangle.getName() << ":\n" << std::endl;
+        std::cout << "Стороны: a=" << a << " b=" << b << " c=" << c << "\n" << std::endl;
+        std::cout << "Углы: A=" << 50 << " B=" << 60 << " C=" << 70 << "\n" << std::endl;
+    } else if (name == "Четырёхугольник") 
+    {
+        double a, b, c, d;
+        std::cout << "Стороны: " << std::endl;
+        std::cin >> a >> b >> c >> d;
+        Quadrilateral quad(a, b, c, d);
+        std::cout << "\n" << quad.getName() << ":\n" << std::endl;
+        std::cout << "Стороны: a=" << a << " b=" << b << " c=" << c << " d=" << d << "\n" << std::endl;
+        std::cout << "Углы: A=" << 50 << " B=" << 60 << " C=" << 70 << " D=" << 80 << "\n" << std::endl;
+    }
+
+    return 0;
+}
